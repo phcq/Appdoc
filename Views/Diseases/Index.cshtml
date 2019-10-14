@@ -1,0 +1,42 @@
+﻿@model IEnumerable<App4.Models.Disease>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> @ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Add new disease</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDiagnosis)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelx => x.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelx => x.DateDiagnosis)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@x.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
